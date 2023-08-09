@@ -9,18 +9,19 @@ Using PNPM:
 pnpm install
 ```
 
-Using NPM:
-```
-npm install
-```
+And 
 
-
-Using PNPM:
 ```
 pnpm run start
 ```
 
-Using NPM:
+Or Using NPM:
+```
+npm install
+```
+
+And
+
 ```
 npm run start
 ```
