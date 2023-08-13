@@ -29,4 +29,4 @@ mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGO_URL).then(() => { console.log("Base de données connectée.") });
 mongoose.connection.on('error', (error: Error) => { console.log(error) })
 
-app.use('/', router());
+app.use('/api', router());

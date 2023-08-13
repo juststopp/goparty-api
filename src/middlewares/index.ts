@@ -2,14 +2,35 @@ import express from 'express';
 import { get, merge } from 'lodash';
 
 import { getUserBySessionToken } from '../db/Users';
+import { getGroupById } from '../db/Groups';
 
-export const isOwner = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+export const isGroupOwner = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
     try {
-        const { id } = req.params;
+        const { groupId } = req.params;
+
+        if(!groupId) return res.sendStatus(403)
+        
+        const group = await getGroupById(groupId);
+
+        if(!group) return res.sendStatus(403);
+
+        const currentUserId = get(req, 'identity._id') as String;
+        if(group.owner !== currentUserId) return res.sendStatus(403);
+
+        return next();
+    } catch(error) {
+        console.log(error);
+        return res.sendStatus(400);
+    }
+}
+
+export const isAccountOwner = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    try {
+        const { userId } = req.params;
         const currentUserId = get(req, 'identity._id') as String;
 
         if(!currentUserId) return res.sendStatus(403);
-        if(currentUserId.toString() !== id) return res.sendStatus(403);
+        if(currentUserId.toString() !== userId) return res.sendStatus(403);
 
         return next();
     } catch(error) {
