@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
 
+/**
+ * The MessageSchema for the MongoDB database.
+ * Contains informations about the message.
+ */
+
 const MessageSchema = new mongoose.Schema({
     text: { type: String, required: true },
     groupId: { type: String, required: true },

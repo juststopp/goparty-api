@@ -2,6 +2,13 @@ import express from 'express';
 
 import { deleteUserById, getUserById, getUsers } from '../db/Users';
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const getAllUsers = async (req: express.Request, res: express.Response) => {
     try {
         const { name } = req.params;
@@ -14,6 +21,13 @@ export const getAllUsers = async (req: express.Request, res: express.Response) =
     }
 }
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const deleteUser = async (req: express.Request, res: express.Response) => {
     try {
         const { userId } = req.params;
@@ -27,6 +41,13 @@ export const deleteUser = async (req: express.Request, res: express.Response) =>
     }
 }
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const updateUser = async (req: express.Request, res: express.Response) => {
     try {
         const { userId } = req.params;

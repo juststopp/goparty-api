@@ -2,6 +2,13 @@ import express from 'express';
 import { createUser, getUserByEmail } from '../db/Users';
 import { authentication, random } from '../helpers';
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const login = async (req: express.Request, res: express.Response) => {
     try {
         const { email, password } = req.body;
@@ -27,6 +34,13 @@ export const login = async (req: express.Request, res: express.Response) => {
     }
 }
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const register = async (req: express.Request, res: express.Response) => {
     try {
         const { email, password, username } = req.body;

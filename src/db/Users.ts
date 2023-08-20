@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
 
+/**
+ * The UserSchema for the MongoDB database.
+ * Contains all informations needeed about the user.
+ */
+
 const UserSchema = new mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true },

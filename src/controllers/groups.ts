@@ -3,6 +3,13 @@ import { get } from 'lodash';
 
 import { createGroup, deleteGroupById, getGroupById, getGroups } from '../db/Groups';
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const getGroupsByName = async (req: express.Request, res: express.Response) => {
     try {
         
@@ -17,6 +24,13 @@ export const getGroupsByName = async (req: express.Request, res: express.Respons
     }
 }
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const getGroupsById = async (req: express.Request, res: express.Response) => {
 
     try {
@@ -33,6 +47,13 @@ export const getGroupsById = async (req: express.Request, res: express.Response)
 
 }
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const updateGroup = async (req: express.Request, res: express.Response) => {
 
     try {
@@ -56,6 +77,13 @@ export const updateGroup = async (req: express.Request, res: express.Response) =
 
 }
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const createGroups = async (req: express.Request, res: express.Response) => {
     try {
 
@@ -80,6 +108,13 @@ export const createGroups = async (req: express.Request, res: express.Response) 
     }
 }
 
+/**
+ * 
+ * @param req {express.Request}
+ * @param res {express.Response}
+ * 
+ * @returns {express.Response}
+ */
 export const deleteGroup = async (req: express.Request, res: express.Response) => {
     try {
         

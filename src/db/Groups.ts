@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
 
+/**
+ * The GroupSchema for the MongoDB database.
+ * Contains the informations about the group.
+ */
+
 const GroupSchema = new mongoose.Schema({
     name: { type: String, required: true },
     date: { type: String, required: true },

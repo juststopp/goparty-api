@@ -48,7 +48,7 @@ export const isAccountOwner = async (req: express.Request, res: express.Response
         const { userId } = req.params;
         const currentUserId = get(req, 'identity._id') as String;
 
-        if(!currentUserId) return res.sendStatus(403);
+        if(!currentUserId) return res.sendStatus(400);
         if(currentUserId.toString() !== userId) return res.sendStatus(403);
 
         return next();
@@ -62,11 +62,11 @@ export const isAuthenticated = async (req: express.Request, res: express.Respons
     try {
         const sessionToken = req.cookies["API-AUTH"];
 
-        if(!sessionToken) return res.sendStatus(403);
+        if(!sessionToken) return res.sendStatus(400);
 
         const existingUser = await getUserBySessionToken(sessionToken);
 
-        if(!existingUser) return res.sendStatus(403);
+        if(!existingUser) return res.sendStatus(400);
 
         merge(req, { identity: existingUser });
 
