@@ -9,6 +9,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 import router from './router';
+import websocket from './websocket';
 
 /**
  * Application creation. Applying global middlewares
@@ -47,3 +48,9 @@ mongoose.connection.on('error', (error: Error) => { console.log(error) })
  */
 
 app.use('/api', router());
+
+/**
+ * Initializing WebScocket Server for live changes.
+ */
+
+websocket();
